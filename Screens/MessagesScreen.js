@@ -24,6 +24,20 @@ export default class MessagesScreen extends React.Component {
         messages: GiftedChat.append(previousState.messages, data)
       }));
     });
+
+    this.socket.on("remove-message", data => {
+      let id = data._id;
+      fetch(AppConf.hostname + "/messages")
+        .then(response => response.json())
+        .then(responseJson => {
+          this.setState({
+            messages: responseJson
+          });
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    });
   }
 
   async componentDidMount() {

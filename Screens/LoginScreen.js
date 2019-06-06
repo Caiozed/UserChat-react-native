@@ -83,6 +83,8 @@ const styles = StyleSheet.create({
   },
   inputBox: {
     backgroundColor: "#F5FCFF",
+    margin: 15,
+    textAlign: "center",
     color: "black"
   },
   logo: {
